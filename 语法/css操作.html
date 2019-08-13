@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <title>JQuery的css基本操作</title>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>李俊坚</li>
+        <li>刘老二</li>
+      </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        /* 
+        $("li").css({
+          fontSize: "24px",
+          color: "red",
+          listStyleType: "none",
+          backgroundColor: "pink"
+        });
+        */
+
+        $('li').eq(0).css('fontSize','20px');
+        $('li').eq(1).css('fontSize','21px');
+        $('li').eq(2).css('fontSize','22px');
+        $('li').eq(3).css('fontSize','23px');
+        $('li').eq(4).css('fontSize','24px');
+
+        for(let i=0;i<$('li').length;i++) {
+          console.log($('li').eq(i).css('fontSize'));
+        }
+
+        // 隐式迭代
+        // 在设置的时候：会给JQuery上的所有选择器的元素设置上相同的值
+        // 在获取的时候：永远只会获取选择器上的第一个值
+        console.log($('li').css('fontSize'));
+      });
+    </script>
+  </body>
+</html>

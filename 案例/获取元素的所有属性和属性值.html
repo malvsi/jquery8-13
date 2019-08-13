@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jquery的属性操作</title>
+    <style>
+      div {
+        width: 100px;
+        height: 300px;
+        background-color: pink;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="attr" style="font-weight: bold; border: 1px solid black">
+      JQuery的属性操作
+    </div>
+
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <script>
+        // 获取元素的所有属性和属性值
+      $("#attr").each(function() {
+        $.each(this.attributes, function() {
+          // this.attributes is not a plain object, but an array
+          // of attribute nodes, which contain both the name and value
+          if (this.specified) {
+            console.log(this.name, this.value);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
