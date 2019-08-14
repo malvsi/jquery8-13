@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery入口文件</title>
+    <script src="../assets/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li id="first">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <script>
+        // 入口文件的第一种写法
+        $(document).ready(function() {
+            // do something...
+        })
+
+        // 入口文件的第二种写法
+        $(function() {
+            // jq对象和js对象（dom对象）的区别
+            // jq对象其实由多个dom对象组成的伪数组
+            let domObj = document.getElementById('first');
+            let jqObj = $('#first');
+            console.log( domObj == jqObj[0]); //jqObj是由domObj组成，长度为1的伪数组
+            jqObj[0].innerHTML = "jq对象"
+        })
+    </script>
+</body>
+</html>
