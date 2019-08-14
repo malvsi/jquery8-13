@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = 1;
+        let b = true;
+        let c = [13, 45];
+        let d = {
+            name: 'ss'
+        };
+        let e = function () {};
+        let f = 'ss';
+        let g = null;
+        let h = undefined;
+        let i = NaN;
+
+        function type(arg) {
+            return Object.prototype.toString.call(arg);
+        }
+
+        console.log(type(a));
+        console.log(type(b));
+        console.log(type(c));
+        console.log(type(d));
+        console.log(type(e));
+        console.log(type(f));
+        console.log(type(g));
+        console.log(type(h));
+        console.log(type(i));
+    </script>
+</body>
+
+</html>

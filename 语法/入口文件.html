@@ -32,6 +32,12 @@
             console.log( domObj == jqObj[0]); //jqObj是由domObj组成，长度为1的伪数组
             jqObj[0].innerHTML = "jq对象"
         })
+
+        $(function() {
+            // dom对象转为jq对象
+            let first = document.getElementById('first');
+            $(first).text('dom对象转为jq对象');
+        })
     </script>
 </body>
 </html>
