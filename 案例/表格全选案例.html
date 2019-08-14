@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      .wrap {
+        width: 300px;
+        margin: 100px auto 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+        width: 300px;
+      }
+
+      th,
+      td {
+        border: 1px solid #d0d0d0;
+        color: #404060;
+        padding: 10px;
+      }
+
+      th {
+        background-color: #09c;
+        font: bold 16px "微软雅黑";
+        color: #fff;
+      }
+
+      td {
+        font: 14px "微软雅黑";
+      }
+
+      tbody tr {
+        background-color: #f0f0f0;
+        text-align: center;
+      }
+
+      tbody tr:hover {
+        cursor: pointer;
+        background-color: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <input type="checkbox" id="j_cbAll" />
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+          </tr>
+        </thead>
+        <tbody id="j_tb">
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>红烧狮子头</td>
+            <td>田老师</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>日式肥牛</td>
+            <td>田老师</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <script>
+      $(function() {
+
+        $("#j_cbAll").click(function() {
+          // 表单项的选择框状态跟随全选按钮的状态一起变化
+          $("#j_tb input").prop("checked", $(this).prop("checked"));
+        });
+
+        // 如果表某一项的选中状态发生变化，则全选按钮的选中状态取消
+        $("#j_tb input").click(function() {
+          // 如果表单项下的选择框选中的状态的数量等于全部选择框下的数量相等
+          if ($("#j_tb input:checked").length == $("#j_tb input").length) {
+            // 相等时，全选框状态切换为选中
+            $("#j_cbAll").prop("checked", true);
+          } else {
+            // 不相等时，全选框的选中状态变为取消
+            $("#j_cbAll").prop("checked", false);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>特殊情况用prop方法代替attr方法</title>
+    <script src="../assets/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <input type="checkbox" checked>
+    <input type="button" value="选中">
+    <input type="button" value="取消">
+
+    <script>
+        $(function() {
+            $('input').eq(1).click(function() {
+                $('input').eq(0).prop('checked',true);
+            })
+
+            $('input').eq(2).click(function() {
+                $('input').eq(0).prop('checked',false);
+            })
+        })
+    </script>
+</body>
+</html>
