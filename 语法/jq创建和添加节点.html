@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        $(function() {
+            let $taobao = $('<a href="http://www.taobao.com" target="_black">淘宝</a>');
+            $('div').append('<a href="http://www.baidu.com" target="_black">百度</a>');
+            $('div').append('<hr>');
+            $('div').append($taobao);
+        })
+    </script>
+</body>
+</html>
