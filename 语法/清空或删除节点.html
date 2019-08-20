@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>1111</p>
+        <p>2222</p>
+        <p>3333</p>
+    </div>
+
+    <script>
+        $(function() {
+            // $('div').empty(); //清空div元素
+            // $('div').remove();   //删除自身
+            $('p:eq(3)').clone().appendTo('div');
+        })
+    </script>
+</body>
+</html>

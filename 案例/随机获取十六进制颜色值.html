@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  随机生成十六进制颜色值
+        function getHexColor(num,n) {
+            let arr = [];
+            let hexNum = num.toString(16);
+            let len = n-hexNum.length;
+            if(len <= 0) return hexNum;
+            if(!arr[len]) {
+                arr[len] = new Array(len+1).join('0');
+            }
+
+            return arr[len] + hexNum;
+        }
+
+        function getColor() {
+            let anum = Math.floor(Math.random()*16777215);
+            return '#' + getHexColor(anum,6);
+        }
+
+        console.log(getColor());
+    </script>
+</body>
+
+</html>
