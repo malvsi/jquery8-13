@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <style>
+    div{
+        width: 4000px;
+        height: 4000px;
+    }
+
+    input{
+        display: none;
+        position:fixed;
+        top: 576px;
+        right: 100px;
+        z-index: 100;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="button" value="^">
+    </div>
+
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                if($(window).scrollTop() > 1000) {
+                    $('input').fadeIn(1000);
+                }else{
+                    $('input').fadeOut(1000);
+                }
+            })
+
+            $('input').click(function() {
+                $('html,body').animate({scrollTop:0});
+            })
+        })
+    </script>
+</body>
+</html>
