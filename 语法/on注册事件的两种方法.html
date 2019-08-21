@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value='add p element'>
+    <div>
+        <p>11111</p>
+        <p>22222</p>
+        <p>33333</p>
+        <p>44444</p>
+    </div>
+
+    <script>
+        $(function() {
+            // 委托代理模式，给div的p子元素注册事件
+            $('div').on('click','p',function(e) {
+                console.log('wo shi p biao qian');
+                e.stopPropagation();
+            })
+
+            $('input').click(function () { 
+                $('<p>button add</p>').appendTo('div');
+            });
+        })
+    </script>
+</body>
+</html>
