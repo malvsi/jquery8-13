@@ -205,17 +205,16 @@
     $(function () {
       // 清空列表
       $('#btn').on('click', function () {
-        $('#j_tb').children().remove();
+        $('#j_tb').empty();
       })
       // 添加一列
       $('#btnAdd').on('click', function () {
         let tr = $('table tr.clone').clone(true);
-        console.log(tr[0]);
         tr.removeClass('clone').appendTo('#j_tb');
       })
       // 删除自身所在的一列
       $('#j_tb').on('click', 'tr a', function () {
-        $(this).parents('tr').remove();
+        $(this).parents('tr').empty();
       })
     })
   </script>

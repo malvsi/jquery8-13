@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/jquery-3.4.1.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="click" id="btn">
+    <div>
+        <p>1111</p>
+    </div>
+
+    <script>
+        $(function () {
+            /* $('div').on('click', 'p', function () {
+                console.log('p event');
+            }) */
+
+            $('p').on('click',function() {
+                $(this).css('color','red');
+                console.log('click...');
+            })
+
+            $('#btn').on('click',function () { 
+                // off解绑方法不能解绑委托代理事件
+                $('p').off('click');
+             })
+        })
+    </script>
+</body>
+
+</html>
