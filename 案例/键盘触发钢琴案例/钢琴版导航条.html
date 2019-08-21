@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav {
+      width: 900px;
+      height: 60px;
+      background-color: black;
+      margin: 0 auto;
+    }
+
+    .nav li {
+      width: 100px;
+      height: 60px;
+      float: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+      color: blue;
+      text-align: center;
+      line-height: 60px;
+      text-decoration: none;
+      z-index: 2;
+    }
+
+    .nav span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: yellow;
+      top: 60px;
+    }
+  </style>
+  <script src="../../assets/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="javascript:void(0);">导航1</a>
+        <span></span>
+      </li>
+      <li><a href="javascript:void(0);">导航2</a><span></span></li>
+      <li><a href="javascript:void(0);">导航3</a><span></span></li>
+      <li><a href="javascript:void(0);">导航4</a><span></span></li>
+      <li><a href="javascript:void(0);">导航5</a><span></span></li>
+      <li><a href="javascript:void(0);">导航6</a><span></span></li>
+      <li><a href="javascript:void(0);">导航7</a><span></span></li>
+      <li><a href="javascript:void(0);">导航8</a><span></span></li>
+      <li><a href="javascript:void(0);">导航9</a><span></span></li>
+    </ul>
+
+    <div>
+      <audio src="mp3/1.ogg"></audio>
+      <audio src="mp3/2.ogg"></audio>
+      <audio src="mp3/3.ogg"></audio>
+      <audio src="mp3/4.ogg"></audio>
+      <audio src="mp3/5.ogg"></audio>
+      <audio src="mp3/6.ogg"></audio>
+      <audio src="mp3/7.ogg"></audio>
+      <audio src="mp3/8.ogg"></audio>
+      <audio src="mp3/9.ogg"></audio>
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      let flag = true;
+      $('.nav ul li').on('mouseenter', function () {
+        let index = $(this).index();
+        $('audio').get(index).load();
+        $('audio').get(index).play();
+        $(this).children('span').stop().animate({
+          top: 0
+        });
+      })
+
+      $('.nav ul li').on('mouseleave', function () {
+        $(this).children('span').stop().animate({
+          top: 60
+        });
+      })
+
+      $(window).on('keydown', function (e) {
+        if (flag) {
+          let code = e.keyCode;
+          if (code >= 97 && code <= 105) {
+            $('.nav ul li').eq(code - 97).trigger('mouseenter');
+          }
+          flag = false;
+        }
+      })
+
+      $(window).on('keyup', function (e) {
+        flag = true;
+        let code = e.keyCode;
+        if (code >= 97 && code <= 105) {
+          $('.nav ul li').eq(code - 97).trigger('mouseleave');
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
